@@ -4,14 +4,32 @@ var ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var spikes = 3.0;
 var size = Math.min(canvas.width, canvas.height) / 2;
-var ratio = 2.0;
+
+var spikes_slide = document.getElementById('spikes_slider');
+noUiSlider.create(spikes_slide, {
+	start: 4,
+	step: 1,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+var ratio_slide = document.getElementById('ratio_slider');
+noUiSlider.create(ratio_slide, {
+	start: 0.25,
+	step: 0.01,
+	range: {
+		'min': 0.0,
+		'max': 1.0
+	}
+});
 
 main();
 function main(){
-	spikes = document.getElementById('spikesrange').value;
-	ratio = document.getElementById('ratiorange').value / 100;
+	var spikes = parseFloat(spikes_slide.noUiSlider.get());
+	var ratio = parseFloat(ratio_slide.noUiSlider.get());
+	console.log(spikes);
 	var c_x = canvas.width / 2;
 	var c_y = canvas.height / 2;
 	var bigradius = size / (ratio + 1.0);
