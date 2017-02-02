@@ -29,7 +29,6 @@ main();
 function main(){
 	var spikes = parseFloat(spikes_slide.noUiSlider.get());
 	var ratio = parseFloat(ratio_slide.noUiSlider.get());
-	console.log(spikes);
 	var c_x = canvas.width / 2;
 	var c_y = canvas.height / 2;
 	var bigradius = size / (ratio + 1.0);
@@ -50,5 +49,5 @@ function main(){
 
 		ctx.fillRect(c_x + big_x + other_x, c_y + big_y + other_y, 1, 1);
 	}
-	setTimeout(main, 15);
+	setTimeout(main, 100);
 }
