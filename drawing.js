@@ -52,5 +52,6 @@ function main(){
 	}
 	spikes_slide.noUiSlider.set(spikes + 1);
 	ratio_slide.noUiSlider.set(ratio + 0.03);
+	
 	setTimeout(main, 20);
 }
