@@ -21,7 +21,7 @@ noUiSlider.create(ratio_slide, {
 	step: 0.01,
 	range: {
 		'min': 0.0,
-		'max': 1.0
+		'max': 1000.0
 	}
 });
 
@@ -40,6 +40,7 @@ function main(){
 	ctx.beginPath();
 	ctx.arc(c_x, c_y, size, 0, 2 * Math.PI);
 	ctx.stroke();
+
 	for(var i = 0.0; i < 2.0 * Math.PI; i += 0.0001){
 		var big_y = Math.sin(i) * bigradius;
 		var big_x = Math.cos(i) * bigradius;
@@ -49,5 +50,7 @@ function main(){
 
 		ctx.fillRect(c_x + big_x + other_x, c_y + big_y + other_y, 1, 1);
 	}
-	setTimeout(main, 100);
+	spikes_slide.noUiSlider.set(spikes + 1);
+	ratio_slide.noUiSlider.set(ratio + 0.03);
+	setTimeout(main, 20);
 }
