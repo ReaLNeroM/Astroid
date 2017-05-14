@@ -6,29 +6,36 @@ canvas.height = window.innerHeight;
 
 var size = Math.min(canvas.width, canvas.height) / 2;
 
-var spikes_slide = document.getElementById('spikes_slider');
-noUiSlider.create(spikes_slide, {
-	start: 4,
-	step: 1,
-	range: {
-		'min': 0,
-		'max': 100
-	}
-});
-var ratio_slide = document.getElementById('ratio_slider');
-noUiSlider.create(ratio_slide, {
-	start: 0.25,
-	step: 0.01,
-	range: {
-		'min': 0.0,
-		'max': 1000.0
-	}
-});
+var spikes = 4;
+var ratio = 0.25;
+
+// var spikes_slide = document.getElementById('spikes_slider');
+// noUiSlider.create(spikes_slide, {
+// 	start: spikes,
+// 	step: 1,
+// 	range: {
+// 		'min': 0,
+// 		'max': 100
+// 	}
+// });
+// var ratio_slide = document.getElementById('ratio_slider');
+// noUiSlider.create(ratio_slide, {
+// 	start: ratio,
+// 	step: 0.01,
+// 	range: {
+// 		'min': 0.0,
+// 		'max': 1000.0
+// 	}
+// });
+
 
 main();
 function main(){
-	var spikes = parseFloat(spikes_slide.noUiSlider.get());
-	var ratio = parseFloat(ratio_slide.noUiSlider.get());
+	// var spikes = parseFloat(spikes_slide.noUiSlider.get());
+	// var ratio = parseFloat(ratio_slide.noUiSlider.get());
+	// spikes_slide.noUiSlider.set(spikes + 1);
+	// ratio_slide.noUiSlider.set(ratio + 0.03);
+
 	var c_x = canvas.width / 2;
 	var c_y = canvas.height / 2;
 	var bigradius = size / (ratio + 1.0);
@@ -50,8 +57,9 @@ function main(){
 
 		ctx.fillRect(c_x + big_x + other_x, c_y + big_y + other_y, 1, 1);
 	}
-	spikes_slide.noUiSlider.set(spikes + 1);
-	ratio_slide.noUiSlider.set(ratio + 0.03);
+
+	spikes += 1;
+	ratio += 0.03;
 	
 	setTimeout(main, 20);
 }
