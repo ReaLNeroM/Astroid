@@ -9,6 +9,16 @@ var size = Math.min(canvas.width, canvas.height) / 2;
 var spikes = 4;
 var ratio = 0.25;
 
+canvas.addEventListener("click", init);
+
+var main_timer;
+function init(){
+	spikes = 4;
+	ratio = 0.25;
+	clearTimeout(main_timer);
+	main();
+}
+
 // var spikes_slide = document.getElementById('spikes_slider');
 // noUiSlider.create(spikes_slide, {
 // 	start: spikes,
@@ -61,5 +71,5 @@ function main(){
 	spikes += 1;
 	ratio += 0.03;
 	
-	setTimeout(main, 20);
+	main_timer = setTimeout(main, 20);
 }
